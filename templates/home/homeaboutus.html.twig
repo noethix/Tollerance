@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+<link href="{{ asset('css/homeaboutus.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="card-deck">
+  <div class="card">
+    <img src="{{ asset('images/avatars/client-cat.png') }}" class="card-img-top" alt="un chat en costume noir">
+    <div class="card-body">
+      <h5 class="card-title">Benjamin</h5>
+      <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sint consequatur animi rem cupiditate iusto officiis, aliquam deleniti quis nemo incidunt voluptatem sunt, similique saepe.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href="#" class="btn btn-primary">Tout sur Benjamin</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{ asset('images/avatars/cat_halloween_23230.png') }}" class="card-img-top" alt="un chat noir qui n'a pas l'air commode">
+    <div class="card-body">
+      <h5 class="card-title">Cécile</h5>
+      <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, laboriosam? Labore, laborum debitis possimus voluptates odio omnis at, et totam nostrum aut dolorem. Corrupti, praesentium?</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href="#" class="btn btn-primary">Tout sur Cécile</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{ asset('images/avatars/cat_6_icon-icons.com_53579.png') }}" class="card-img-top" alt="maneki-neko, chat porte bonheur blanc">
+    <div class="card-body">
+      <h5 class="card-title">Marie</h5>
+      <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt distinctio iure laboriosam qui. Quas velit, quisquam maxime doloribus labore hic deserunt vitae consequatur vel quidem.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href="#" class="btn btn-primary">Tout sur Marie</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{ asset('images/avatars/cat_ghost_halloween_22016.png') }}" class="card-img-top" alt="chat déguisé en fantôme avec un drap sur la tête, la queue qui dépasse">
+    <div class="card-body">
+      <h5 class="card-title">Éric</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, expedita odio molestias voluptates sit ducimus natus nemo. Et id itaque architecto eius fugit vitae. Dignissimos.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <a href="#" class="btn btn-primary">Tout sur Éric</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

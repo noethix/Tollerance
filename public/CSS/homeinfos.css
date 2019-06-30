@@ -1,0 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+    z-index: -1;
+}

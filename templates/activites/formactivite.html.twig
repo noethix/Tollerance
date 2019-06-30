@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ action }} une activité{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/formactivite.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+
+{% block body %}
+
+{% for flash_message in app.session.flashbag.get('notice') %}
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flash_message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+    </div> 
+{% endfor %}
+
+    <div class='form_contact'>
+        <h3>{{ action }} une activité</h3>
+
+        <div class="formulaire_contact" class="formulaire_taches">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+        <div>
+        {% if Activites is defined %}
+            {% for activites in Activites %}
+                <a class="btn btn-info" href=" {{ path('updateActivites', {'id': activites.idActivites}) }}" type="button">{{ 'button.edit'|trans }}</a>
+            </td>
+            <a type="button" class="btn btn-dark" href="{{ path('deleteActivites', {'id': activites.idActivites}) }}">{{ 'button.delete'|trans }}</a>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script>src="{{ asset('JS/alert.js') }}"</script> 
+<script type="text/javascript" src="{{ asset('js/selectRegionActivity.js') }}"></script>
+{% endblock %}
+

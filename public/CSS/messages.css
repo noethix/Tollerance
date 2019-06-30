@@ -1,0 +1,116 @@
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+}
+
+.title {
+    margin-top: 120px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.content-container {
+    display:grid;
+    grid-template-columns: 1fr 80%;
+    grid-template-rows: repeat(14, 1fr);
+    margin-top: 50px;
+    margin-bottom: 300px;
+    grid-row-gap: 20px;
+}
+
+.mess-links {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    margin-left: 70px;
+    
+}
+
+.recu-link, .envoye-link {
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.recu-link:hover, .envoye-link:hover {
+    text-decoration: none;
+    color: rgb(134, 133, 133);
+}
+    
+.recu {
+    grid-column: 2/3; 
+    align-content: center;
+    width: 80%;
+    text-align: left;
+    background:  rgb(253, 253, 253);
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+
+.envoye {
+    display: none;
+    grid-column: 2/3; 
+    align-content: center;
+    width: 80%;
+    text-align: left;
+    background:  rgb(253, 253, 253);
+    padding: 10px 25px;
+    border-radius: 10px;
+}
+.mess-header {
+    display: flex;
+    justify-content: space-between;
+}
+.subject {
+    font-weight: 500;
+}
+
+.info {
+    font-style: italic;
+    font-size: 10px;
+}
+.avatar {
+    height: 20px;
+    border-radius: 50%;
+    padding: 0 5px;
+}
+
+hr {
+    margin: 10px;
+}
+a {
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(134, 133, 133) !important;
+}
+
+.message {
+    color: rgb(75, 75, 75);
+}
+
+.reponse {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 10px 0; 
+}
+
+.answer, .delete {
+    width: 100px;
+    margin: 20px 0; 
+    border-radius: 10px;
+}
+
+.answer {
+    padding: 8px 8px;
+    background: rgb(164, 238, 252);
+}
+
+.delete {
+    padding: 8px 8px;
+    background: rgb(22, 32, 34);
+    color: #fff;
+}

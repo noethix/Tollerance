@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+
+{% block title %}Sujet : {{ topic.getNameTopic() }}{% endblock %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+{% block stylesheets %}
+
+<link href="{{ asset('css/topic_view.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% endblock %}
+
+{% block body %}
+<div class="main-container">
+
+</div>
+<!--<div class="container-top">
+
+	<img class="photo" src=2{{ asset('images/groupes/' ~ topic.getIdGroupe().getPhotoGroup()) }}">
+
+	<div><a href="{{ path('groupe', {'id': topic.getIdGroupe.getIdGroupe()}) }}">Retour</a></div>
+	
+	<div><label>Sujet :</label> {{ topic.getNameTopic() }}</div>
+	
+	<div><label>Message initial :</label> {{ topic.getContentTopic() }}</div>
+</div>-->
+<div class="container-top">
+	<img class="photo" src="{{ asset('images/groupes/' ~ topic.getIdGroupe().getPhotoGroup())}}">
+
+	<div class="retour"><a href="{{ path('groupe', {'id': topic.getIdGroupe.getIdGroupe()}) }}"><img src="https://res.cloudinary.com/noethix/image/upload/v1556227345/things/left-arrow.png"></a></div>
+
+	<div class="topic"> {{ topic.getNameTopic() }}</div>
+
+	<div class="inital">{{ topic.getContentTopic() }}</div>
+
+
+</div>
+
+<div class="eve-comments">
+	<p>Messages</p>
+	<div class="comments-posts">
+		{% for post in posts %}
+		<div><img class="avatar" src="{{ asset('images/avatars/' ~ post.getPostsUser().getAvatar()) }}">{{ post.getContentPost() }}
+			<span class="small">par <a
+					href="{{ path('profile_view', {'id': post.getPostsUser().getIdUser()}) }}">{{ post.getPostsUser().getNameUser() }}</a>
+				- le {{ post.getCreatedDatePost()|date("d/m/Y à H:i") }}</span>
+			<hr>
+		</div>
+
+		{% endfor %}
+	</div>
+
+
+	<div>
+		{% if page == 1 %}
+		page : 1
+		{% else %}
+		page : <a href="{{ path('topic', {'id': topic.getIdTopic(), 'page': 1}) }}">1</a>
+		{% endif %}
+
+		{% if pages > 1 %}
+		{% for i in 2..pages %}
+		{% if i == page %}
+		| {{ i }}
+		{% else %}
+		| <a href="{{ path('topic', {'id': topic.getIdTopic(), 'page': i}) }}">{{ i }}</a>
+		{% endif %}
+		{% endfor %}
+		{% endif %}
+	</div>
+
+	{% if participate == true %}
+
+	<div>
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+	</div>
+
+	{% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,225 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 70px;
+    margin: 20px;
+}
+
+.tagline {
+    margin: 20px;
+}
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    text-align: center;
+    margin-top: 120px;
+    width: 100%;
+}
+
+
+
+
+.container-eve {
+    grid-column: 1 / 5;
+    align-content: center;
+    text-align: center;
+    padding: 30px 0;
+    
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    background: rgb(241, 251, 255);
+    border-radius: 10px;
+}
+
+.middle-container{
+    grid-column: 6/ 12;
+    align-content: center;
+    text-align: center;
+    
+}
+
+.container-act {
+    grid-column: 13/ 17;
+    align-content: center;
+    text-align: center;
+    padding: 30px 0;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    background: rgb(246, 255, 241);
+    border-radius: 10px;
+}
+
+
+.container-gro {
+    background: #FFFCEE;
+    border-radius: 10px;
+    padding: 30px 0;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+}
+
+.container-pos {
+    border-radius: 10px;
+    background-color:  rgb(240, 211, 255)!important;
+    padding: 30px 0;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    
+}
+
+.posts {
+    padding: 10px 30px 10px 30px;
+}
+
+.post {
+    margin: 15px 0;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background: rgb(252, 245, 255);
+}
+
+h4 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem;
+}
+.posts_title {
+    text-align: center;
+    margin: 20px 0;
+}
+.posts{
+    text-align: left;
+}
+
+ul li {
+  list-style-type: none;
+  padding: 0 30px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(124, 124, 124);
+}
+
+a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.profile {
+    grid-column: 1/ -1;
+    align-self: center;
+}
+
+
+
+.lesPhotos {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 20px 0;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    border-radius: 10px;
+}
+
+
+.evenements li, .activites li, .groupes li {
+    display: inline-block; 
+    position: relative;
+}
+
+
+
+.textField-eve {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 10px 104px 25px 58px;
+    color: #000;
+    background: rgba(241, 251, 255, 0.50);
+}
+
+.textField-act {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 25px 104px 25px 58px;
+    color: #000;
+    background: rgba(255, 252, 238, 0.50);
+}
+
+.textField-gro {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 25px 104px 25px 58px;
+    color: #000;
+    background: rgba(255, 252, 238, 0.50);
+}
+
+
+.bouton {
+    margin:50px 0;
+    grid-column:  1/ -1;
+    align-self: center;
+}
+.btn-primary{
+    border-color: rgb(146, 134, 134)!important;
+    background-color:  rgb(184, 177, 177)!important;
+}
+
+.btn-primary:hover {
+    border-color: rgb(146, 134, 134)!important;
+    background-color:  rgb(233, 230, 230)!important;
+}
+
+.btn-primary a{
+    color: #000;
+}
+
+.btn-primary a:hover{
+    color: rgb(77, 77, 77);
+}
+
+@media only screen and (max-width: 600px) {
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        text-align: center;
+        margin-top: 90px;
+    }
+    
+    
+    .middle-container{
+        grid-column: span 12;
+    }
+    
+    
+    .container-act {
+        grid-column: span 12;  
+    }
+    
+    
+    .container-eve {
+        grid-column: span 12;
+    }
+
+}

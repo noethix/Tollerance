@@ -1,0 +1,122 @@
+html, body {
+    background: rgb(246, 255, 241);
+}
+
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+h3 {
+    text-align: center;
+    background: rgb(246, 255, 241)!important;
+    padding: 20px;
+    margin: 120px 0;
+    width: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.5rem;
+}
+
+.photoevent{
+    margin-top:30px;
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.avatar {
+    height: 50px;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.sorting_1 {
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+}
+
+table.dataTable, thead, .fc-view-container {
+    width: 80% !important;
+    margin: auto;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+label {
+    margin: 20px 120px;
+}
+
+#display_activites_departement, #display_activites_region{
+    height: 40px !important;
+    border-color: rgba(240, 248, 255, 0.068);
+    border-radius: 5px;
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#t_users_length select {
+    height: 30px !important;
+    border-color: rgba(240, 248, 255, 0.068);
+    border-radius: 5px;
+    width: 70px;
+}
+
+#t_users_previous, #t_users_next, .paginate_button  {
+    color: #000 !important;
+    margin: 10px 20px 20px 20px;
+}
+
+#t_users_previous:hover, #t_users_next:hover, .paginate_button:hover {
+    color: rgb(134, 133, 133) !important;
+}
+
+.paginate_button current {
+    color: rgb(248, 50, 205) !important ;
+}
+
+.col div a:hover {
+    text-decoration: none;
+}
+
+.fc-list-item-marker {
+    display: none;
+}
+
+.btn btn-secondary{
+    margin: auto;
+}
+
+button, .btn-secondary {
+    background: rgb(171, 201, 156) !important;
+    border-color:  rgb(124, 146, 112) !important;
+}
+
+button:hover, {
+    background: rgb(1124, 146, 112) !important;
+    border-color:  rgb(124, 146, 112) !important;
+}
+
+.fc-button-primary:focus {
+    background: rgb(1124, 146, 112) !important;
+}
+
+.fc-button-group {
+    margin: 20px 90px; 
+}
+
+.btn-secondary {
+    margin-left: 45%; 
+    color: #000;
+}

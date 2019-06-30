@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Tous les groupes{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/displaygroupe.css') }}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<div >
+    <h3>Groupes communautaires présents sur TOLLErance</h3>
+    
+    <div>
+    <a class="btn btn-secondary" href="{{ path ('groupesNew', {'id':1}) }}">Ajoute un groupe</a>
+    </div>
+    <br>
+	<div class="formulaire_taches" class="formulaire_contact">
+        {{ form_start(form) }}
+		
+        <div class="row">
+		
+		<div class="col-6">
+        {{ form_widget(form.eventsRegion) }}
+        </div><div class="col-6">
+		{{ form_widget(form.eventsDepartement) }}
+        </div></div>
+        
+        {{ form_end(form) }}
+        </div>
+    </div>
+    <br>
+
+        <div class="grid">
+           
+                {% for group in displayGroupes %}
+                <div class="groupe-cells">
+                <a href="{{ path('groupe', {'id': group.getIdGroupe()}) }}"><img class="photo" src="{{asset ('images/groupes/' ~ group.getPhotoGroup())}}"/></a>
+                <h4 > {{ group.getNameGroup() }}</h3>
+                <p class="creation">Date de création : {{ group.getDateCreatedGroupe()|date("d/m/Y") }}.</p>
+                <p> {{ group.getDescriptionGroupe() }}</p>
+                </div>
+                {% endfor %}           
+        </div>
+        
+
+
+</div>
+
+{% endblock %}
+{% block javascripts %}
+<script>src="{{ asset('JS/alert.js') }}</script> 
+<script type="text/javascript" src="{{ asset('js/selectRegionDisplayEvent.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+html, body {
+    background:  #FFFCEE;
+}
+
+h3 {
+    text-align: center;
+    background: #FFFCEE !important;
+    padding: 20px;
+    margin: 120px 0;
+    width: 100%;
+    font-family: 'Dosis', sans-serif;
+    font-size: 2.5rem;
+}
+
+#display_event_eventsDepartement, #display_event_eventsRegion{
+    height: 40px !important;
+    border-color: rgba(240, 248, 255, 0.068);
+    border-radius: 5px;
+    width: 250px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    background: rgb(221, 209, 156)  !important;
+    border-color:  rgb(185, 172, 111) !important;
+    margin-left: 45%; 
+    color: #000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin: 20px 30px;
+    grid-gap: 40px;
+    justify-items: center;
+}
+
+.photo {
+    height: 220px;
+    width: 290px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    
+}
+
+.groupe-cells {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 20px 10px;
+    background: #fff;
+    border-radius: 20px;
+    border-color: rgb(194, 178, 107);
+    border-width: 2px;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+    
+}
+
+.creation {
+    font-size:.8rem;
+    font-style: italic;
+}

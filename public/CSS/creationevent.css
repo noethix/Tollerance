@@ -1,0 +1,100 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background: rgb(241, 251, 255);
+}
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+nav ul li  {
+    color: #C8E9F4 !important;
+}
+
+
+h3 {
+    text-align: center;
+    background: rgb(241, 251, 255)!important;
+    padding: 20px;
+    margin: 30px 0;
+    width: 100%;
+    color: #000;
+    border-radius: 5px;
+}
+
+.form_contact {
+    font-size: 13px;
+    display: flex;
+    width: 600px;
+    align-content: center;
+    flex-direction: column;
+    margin: 150px auto;
+    background: rgb(224, 237, 241);
+    padding: 20px 50px;
+    color: rgb(121, 121, 121);
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    -moz-box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.77);
+    box-shadow: 4px 9px 16px -4px rgba(0,0,0,0.15);
+}
+
+#message_admin_subjectMessage{
+    background-color: #E0D4D4 !important;
+    border-color:  rrgb(165, 181, 187)   !important;               
+    margin: 20px 0;
+}
+
+#message_admin_contentMessage  {
+    border-color:  rgb(137, 158, 165)  !important;
+    border-width: 15px;
+    height: 150px;
+    margin: 20px 0;
+}
+.btn-primary {
+    background: rgb(241, 251, 255)!important;
+    border-color:  rgb(165, 181, 187) !important;
+    color: #000;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    color: rgb(43, 43, 43);
+}
+.form-control {
+    font-size: 13px;
+}
+
+#event_photo, #activite_photoActivites, #groupe_photoGroup {
+    height: 40px;
+}
+
+button {
+    border-radius: 2px;
+}
+
+.btn-primary:hover {
+    background: rgb(224, 237, 241) !important;
+}
+#event_nameEvent, #activite_nameActvites {
+    height: 35px;
+}
+
+#event_descriptionEvent, #activite_descriptionActivites {
+    height: 180px;
+}
+#event_Region {
+    margin: 10px 0;
+}
+
+.alert {
+    margin: auto;
+    margin-top: 50px;
+    width: 600px;
+    text-align: center;
+    border-radius: 1px;
+    z-index: 0;
+}
+

@@ -1,0 +1,17 @@
+#registration_nameUser, #registration_email, #registration_password, #registration_confirm_password, #registration_city  {
+    border-color:  #E0D4D4 !important;
+    border-width: 2px;
+    margin: 5px 0;
+}
+
+#registration_usersDepartment {
+    margin-bottom: 20px;
+}
+
+#registration_birthdateUser_year, #registration_birthdateUser_day, #registration_birthdateUser_month {
+    height: 30px;
+    border-radius: 3px;
+    border-color:  #E0D4D4 !important;
+    margin: 0 20px 0 0;
+}
+

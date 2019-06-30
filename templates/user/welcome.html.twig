@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/welcome.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Bienvenue {{ user.getNameUser() }} !{% endblock %}
+
+{% block body %}
+
+
+<div class="title">
+	<h3>Bienvenue {{ user.getNameUser() }}!</h3>
+	<img class="avatar" src="{{ asset('images/avatars/' ~ user.avatar) }}">
+
+<div>
+	{{ user.tagline }}
+</div>
+</div>
+<div class="grid">
+<div class="container-eve">
+	<h4>Evènements :</h4>
+	{% if user.getEventFk() is empty %}
+		<div>tu n'es inscrit à aucun évènement</div>
+		<div><button class="btn btn-outline-primary"><a href="{{ path('allEvents') }}">Voir tous les évènements</a></button></div>
+	{% else %}
+		<ul>
+		{% for event in user.getEventFk() %}
+		    <li><a href="{{ path('event', {'id': event.getIdEvent()}) }}"><img class ="lesPhotos" src="{{ asset('images/events/' ~ event.getPhoto()) }}"><p class="textField-eve">{{ event.getNameEvent() }}</p></a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	<div>
+	<button class="btn btn-outline-primary"><a href="{{ path('eventNew', {'id': user.idUser}) }}">crée un évènement</a></button>
+</div>
+</div>
+
+<div class="container-act">
+	<h4>Activités :</h4>
+	{% if user.getActivitesFk() is empty %}
+		<div>tu n'es inscrit à aucune activité</div>
+
+<!-- PATH A MODIFIER -->
+
+		<div><button class="btn btn-outline-primary"><a href="{{ path('welcome') }}">toutes les activités</a></button></div>
+	{% else %}
+		<ul>
+		{% for activite in user.getActivitesFk() %}
+		    <li><a href="{{ path('activite', {'id': activite.getIdActivites()}) }}"><img class ="lesPhotos" src="{{ asset('images/activites/' ~ activite.getPhotoActivites()) }}"><p class="textField-act">{{ activite.getNameActvites() }}</p></a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	<div>
+	<button class="btn btn-outline-primary"><a href="{{ path('activitesNew', {'id': user.idUser}) }}">crée une activité</a></button>
+</div>
+</div>
+
+<div class="container-gro">
+	<h4>Groupes :</h4>
+	{% if user.getGroupesFk() is empty %}
+		<div>tu ne fais partie d'aucun groupe</div>
+
+<!-- PATH A MODIFIER -->
+
+		<div><button class="btn btn-outline-primary"><a href="{{ path('welcome') }}">tous les groupes</a></button></div>
+	{% else %}
+
+		<ul>
+		{% for groupe in user.getGroupesFk() %}
+		    <li><a href="{{ path('groupe', {'id': groupe.getIdGroupe()}) }}"><img class ="lesPhotos" src="{{ asset('images/groupes/' ~ groupe.getPhotoGroup()) }}"><p class="textField-gro">{{ groupe.getNameGroup() }}</p></a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	
+<div>
+	<!--<button class="btn btn-outline-primary"><a href="{{ path('new_user_message', {'id': user.idUser}) }}">contacte {{ user.getNameUser() }}</a></button>-->
+</div>
+</div>
+
+<!-- PATH A MODIFIER AVEC UTILISATEUR CONNECTE -->
+
+
+</div>
+
+<div class="container-pos">
+		<h4 class="posts_title">5 derniers posts</h4>
+		<div class="posts">
+	
+			{% for post in posts %}
+			<div >
+				{% if post.getIdEvent() != NULL %}
+					<div class="post">{{ post.getContentPost() }} <span class="small">dans <a href="{{ path('event', {'id': post.getIdEvent().getIdEvent()}) }}">{{ post.getIdEvent().getNameEvent() }}</a></span></div>
+				{% endif %}
+			</div>
+			<div>
+				{% if post.getIdActivite() != NULL %}
+					<div class="post">{{ post.getContentPost() }} <span class="small">dans <a href="{{ path('activite', {'id': post.getIdActivite().getIdActivites()}) }}">{{ post.getIdActivite().getNameActvites() }}</a></span></div>
+				{% endif %}
+			</div>
+			<div >
+				{% if post.getIdTopic() != NULL %}
+					<div class="post">{{ post.getContentPost() }} <span class="small">dans <a href="{{ path('topic', {'id': post.getIdTopic().getIdTopic()}) }}">{{ post.getIdTopic().getNameTopic() }}</a></span></div>
+				{% endif %}
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

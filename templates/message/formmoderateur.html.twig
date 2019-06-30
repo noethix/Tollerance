@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}message au mod{% endblock %}
+{% block stylesheets %}
+
+<link href="{{ asset('css/formadmin.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+
+{% block body %}
+
+  {% for flash_message in app.session.flashbag.get('notice') %}
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ flash_message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> 
+<div class="alert alert-success"  class="close"  data-dismiss="alert" aria-label="Close">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+
+{% for flash_message in app.session.flashbag.get('notice') %}
+   <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  {{ flash_message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> 
+<div class="alert alert-success"  class="close"  data-dismiss="alert" aria-label="Close">
+        {{ flash_message }}
+    </div>
+{% endfor %}
+
+<div class='form_contact'>
+    <h3>contacte un mod</h3>
+ 
+    <div class="formulaire_contact">
+        {{ form_start(form) }}      
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% block stylesheets %}
+
+<link href="{{ asset('css/formadmin.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}

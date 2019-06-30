@@ -1,0 +1,268 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background: rgb(241, 251, 255);
+}
+.main-container {
+    align-content: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    margin-top: 100px;
+}
+.container-top {
+    display: grid;
+    margin-bottom: 50px;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(14, 60px);
+    grid-area: photo;
+}
+
+.photo {
+    grid-column: 5/ span 8;
+    grid-row: 1/9;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.name {
+    grid-column: 7/ 11;
+    grid-row: 2/3;
+    background: rgba(200, 233, 244, 0.8);
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date {
+    grid-column: 7/ 11;
+    grid-row: 4/5;
+    background: rgba(200, 233, 244, 0.8);
+    height: auto;
+    padding: 10px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ou {
+    grid-column: 7/ 11;
+    grid-row: 6/7;
+    background: rgba(200, 233, 244, 0.8);
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.quoi {
+    grid-column: 6/ 12;
+    grid-row: 8/ 11;
+    background: rgba(169, 144, 239, 0.8);
+    justify-self: stretch;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prix {
+    grid-column: 12/15;
+    grid-row: 5/ 6;
+    background: rgba(169, 144, 239, 0.8);
+    padding: 10px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creer {
+    grid-column: 3/6;
+    grid-row: 5/ 6;
+    background: rgba(169, 144, 239, 0.8);
+    padding: 10px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.who-comes {
+    grid-column: 6/12;
+    grid-row: 13/ 14;
+    background: rgba(200, 233, 244, 0.8);
+    padding: 10px 10px 30px 10px;
+    border-radius: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-bottom {
+   margin-top: 30px;
+}
+
+.eve-people {
+    margin-bottom: 50px;
+}
+
+.people p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem;
+    margin: 50px 0;
+}
+
+#eve-people {
+    display: inline-block;
+    justify-content: center;
+}
+
+.eve-people-photo{
+    border-radius: 50%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 0 30px;
+}
+
+
+a { 
+    color: #000;
+}
+
+a:hover{
+    color: rgb(133, 133, 133);
+    text-decoration: none;
+}
+
+.eve-comments p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+    margin: 50px 0 50px 0;
+}
+
+.eve-comments {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 100px;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 20px;
+    margin: 10px;
+}
+
+.comentaries {
+    margin-top: 15px;
+}
+
+.avatar-photo {
+    border-radius: 50%;
+    height: 50px;
+    margin: 10px;
+}
+.comments-posts {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    padding: 10px 20px;
+    background: rgb(250, 250, 250);
+}
+
+span { 
+    font-style: italic;
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+}
+
+
+#post_contentPost {
+    width: 60%;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    background: rgb(250, 250, 250);
+    font-size: .8em;
+}
+
+label {
+    margin: 0 30px 0 10px;
+}
+
+#posts, .btn{
+    width: 60%;
+    margin: auto;
+}
+
+#post_save {
+    margin-bottom: 50px;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: rgb(187, 236, 255);
+    border-color: rgb(148, 192, 211);
+}
+
+.btn-primary:hover {
+    color: rgb(102, 102, 102);
+    background-color: rgb(241, 251, 255);
+    border-color: rgb(207, 241, 255)
+}
+
+.btn-info {
+    color: #000;
+    background-color: rgb(169, 144, 239);
+    border-color: rgb(114, 97, 163);
+    width: 36%;
+    border-radius: 10px;
+}
+
+.btn-info:hover {
+    background-color: rgb(114, 97, 163);
+    border-color: rgb(114, 97, 163);
+}
+
+.btn-dark {
+    width: 36%;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.btn-dark:hover {
+    color: rgb(141, 141, 141);
+}
+
+.update, .delete {
+    display: flex;
+    align-items: center;
+}

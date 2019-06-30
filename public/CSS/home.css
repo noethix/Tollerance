@@ -1,0 +1,101 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+    z-index: -1;
+}
+
+h2 {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+p {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.big_pic {
+   display: grid;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(21, 50px);
+   
+}
+
+.who {
+    grid-column: 2 / 16;
+    grid-row: 2/9;
+    background: rgba(214, 254, 255, 0.699);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.9;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.what {
+    grid-column: 3/ 12;
+    grid-row: 8/15;
+    background: rgba(164, 204, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.9;
+    padding: 20px;
+    border-radius: 10px; 
+    z-index: 1;
+    
+}
+
+.groups {
+    grid-column: 2 / 16;
+    grid-row: 14/21;
+    background: rgba(223, 168, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.9;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px;
+    border-color: #c2fccd;
+    border-radius: 50%;
+    grid-column: 13 / 16;
+    grid-row: 8/15;
+    background: rgba(212, 0, 255, 0.4);
+   ;
+    font-weight: bold;
+    line-height: 1.9;
+    color: #fff;
+   
+}
+
+
+
+a {
+    color: #8400ac;
+}
+
+.infos a {
+    color: #fae8ff;
+}
+a:hover {
+    text-decoration: none;
+    color: #560070;
+
+}

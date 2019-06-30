@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+<link href="{{ asset('css/home.css') }}"  type="text/css" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block title %}Info{% endblock %}
+
+{% block body %}
+
+<div class="big_pic">
+   <div class="who">
+   <h2>Qui sommes-nous ?</h2>
+   <p>Nous sommes 4 stagiaires (2 femmes et 2 hommes) en formation de développement web. Nous avons eu l'idée de construire un projet de réseau social autour de groupes/communautés considéré(e)s dans notre société comme étant "hors normes", et qui peuvent expérimenter toutes sortes de préjugés/discriminations/harcèlements/isolement dans leur quotidien. Nous avons voulu créer un environnement sécure qui leur permette de se retrouver, d'échanger, de se rencontrer, librement, en dehors de tout jugement. Ici, tout le monde est bienvenu, à condition d'être bienveillant of course!<br><a href="{{ path('home_about_us') }}"><strong><em>Tout savoir sur nous...</em></strong></a></p>
+   </div>
+   <div class="what">
+   <h2>TOLLÉrance, c'est quoi ?</h2>
+   <p>C'est un réseau social qui a pour vocation d'offrir un espace sécure empli de bienveillance, permettant aux personnes de s'exprimer librement, de débattre, de questionner, de s'informer, de trouver du soutien, du réconfort, de se rencontrer lors de sorties groupées, de pratiquer des activités ensemble, etc. Le réseau est décomposé en groupes et l'utilisateur/rice/eurice choisit, lors de son inscription, à quel(s) groupe(s) il/elle/iel veut accéder. <a href="{{ path('home_suite') }}"><strong><em>Suite...</em></strong></a></p>
+   </div>
+   <div class="groups">
+   <h2>Les groupes</h2>
+   <p>Pour commencer notre projet, nous avons dû faire un choix sur les groupes présents au sein du site. Cette liste est non-exhaustive et est vouée à évoluer au fur et à mesure des gens qui nous rejoignent. Tout le monde est libre de faire des propositions pour la création de nouveaux groupes (et de leur appellation), nous ferons en sorte d'étudier attentivement toutes les demandes. En attendant, vous pouvez trouver la liste des groupes déjà présents <a href="{{ path('home_groups') }}"><strong><em>juste ici...</em></strong></a></p>
+   </div>
+   <div class="infos">
+   <p>💡<br>Des questions ? <br>Plus d’information ? <br><em><a href="{{ path('home_infos') }}">C'est par ici !</a></em></p>
+   </div>
+   
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

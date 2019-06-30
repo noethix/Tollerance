@@ -1,0 +1,159 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ event.getNameEvent() }}{% endblock %}
+
+
+{% block stylesheets %}
+<link href="{{ asset('css/view_event.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block body %}
+<div class="main-container">
+<div class="container-top">
+
+<img class="photo" src="{{ asset('images/events/' ~ event.getPhoto()) }}">
+
+<div class="name"> {{ event.getNameEvent() }}</div>
+
+<div class="date">le {{ event.getDateEvent()|date("d/m/Y à H:i") }}</div>
+
+<div class="ou"> à {{ event.getPlaceEvent() }}<!--| {{ event.getEventsDepartement().getNameDepartment() }}| {{ event.getEventsRegion().getNameRegion() }}--></div>
+
+<div class="prix">ça te coûtera 
+{% if event.getPrice() != 0 %}
+	 {{ event.getPrice() }} €
+{% else %}
+	rien 
+{% endif %}
+</div>
+
+{% for user in event.getEventsUser() %}
+<div class="creer">crée par <a href="{{ path('profile_view', {'id': user.getIdUser()}) }}"><img class="avatar-photo" src="{{ asset('images/avatars/' ~ event.getCreatedByUser().getAvatar) }}">{{ event.getCreatedByUser().getNameUser }}</a></div>
+{% endfor %}
+
+
+
+<div class="quoi">{{ event.getDescriptionEvent() }}</div>
+
+<!--{% for user in event.getEventsUser() %}-->
+
+<div class="creer">crée par <a href="{{ path('profile_view', {'id': user.getIdUser()}) }}"><img class="avatar-photo" src="{{ asset('images/avatars/' ~ event.getCreatedByUser().getAvatar) }}">{{ event.getCreatedByUser().getNameUser }}</a></div>
+<!--{% endfor %}-->
+
+<div class="who-comes">
+	{{ form_start(participateForm, {'attr': {'id': 'participateForm'}}) }}
+		{{ form_widget(participateForm) }}
+	{{ form_end(participateForm) }}
+</div>
+</div>
+
+
+<div class="container-bottom">
+
+{% if (user == createdby) or (is_granted('ROLE_ADMIN')) %}
+<div class="update">
+<a type="button" class="btn btn-info" href=" {{ path('updateEvent', {'id': event.getIdEvent()}) }}">{{ "modifie l'évènement"|trans }}</a>
+</div>
+<br>
+<div class="delete">
+<div id="dialog_modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Supprimer un évènement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Es tu sûr(e) de vouloir supprimer cet évènement ?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="delete_button" type="button" class="btn btn-primary">Oui</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button 
+  class="btn btn-dark"
+  type="button" 
+  aria-haspopup="dialog"
+  aria-controls="dialog" data-toggle="modal" data-target="#dialog_modal">Effacer l'évènement
+</button>
+</div>
+
+{% endif %}
+
+<div class="people">
+<p>qui vient...</p>
+{% for user in event.getEventsUser() %}
+	<ul id="eve-people">
+	<li><a href="{{ path('profile_view', {'id': user.getIdUser()}) }}"><img class="eve-people-photo" src="{{ asset('images/avatars/' ~ user.getAvatar()) }}"><br>{{ user.getNameUser() }}</a></li>
+	</ul>
+{% endfor %}
+</div>
+
+<div class="eve-comments">
+<p id="comments">commentaires</p>
+<div class="comments-posts">
+{% for post in posts %}
+	<div class="comentaries">{{ post.getContentPost() }} <span class="small"><br> <a href="{{ path('profile_view', {'id': post.getPostsUser().getIdUser()}) }}"><img class="avatar" src="{{ asset('images/avatars/' ~ post.getPostsUser().getAvatar()) }}"> par {{ post.getPostsUser().getNameUser() }}</a> - le {{ post.getCreatedDatePost()|date("d/m/Y à H:i") }}</span><hr></div>
+{% endfor %}
+</div>
+
+<div>
+	{% if page == 1 %}
+		page : 1 
+	{% else %}
+		page : <a href="{{ path('event', {'id': event.getIdEvent(), 'page': 1}) }}#comments">1</a>
+	{% endif %}
+
+	{% if pages > 1 %}
+		{% for i in 2..pages %}
+			{% if i == page %}
+				| {{ i }}
+			{% else %}
+				| <a href="{{ path('event', {'id': event.getIdEvent(), 'page': i}) }}#comments">{{ i }}</a>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<div >
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+	{{ form_end(form) }}
+</div>
+</div>
+</div>
+</div>
+
+
+{% block javascript %}
+	<script>
+		$("#go_go_0").click(function() {
+  			$("#participateForm").submit();
+		});
+		$("#go_go_1").click(function() {
+  			$("#participateForm").submit();
+		});
+		{% if participate == true %}
+			$(document).ready(function() {
+				$("#go_go_0").prop('checked', true);
+			});
+		{% else %}
+			$(document).ready(function() {
+				$("#go_go_1").prop('checked', true);
+			});
+		{% endif %}
+		$("#delete_button").click(function() {
+			window.location.href = '{{ path('deleteEvent', {'id': event.getIdEvent()}) }}';
+		});
+	</script>
+{% endblock %}
+
+{% endblock %}

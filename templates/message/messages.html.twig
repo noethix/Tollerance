@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/messages.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}Messagerie{% endblock %}
+
+{% block body %}
+<div class="title">Messagerie de {{ user.getNameUser() }} </div>
+
+
+
+
+
+<div class="content-container">
+	<div class="mess-links">
+		<a class="recu-link" href="#">Messages reçus</a>
+		<a class="envoye-link" href="#">Messages envoyés</a>
+	</div>
+
+
+	{% for message in receivedMessages %}
+	<div class="recu">
+		<div class="mess-header">
+			<div class="subject">{{ message.getSubjectMessage() }}</div>
+			<div class="info" class="small">reçu le {{ message.getCreatedDateMessage()|date('d/m/Y à H:i') }} de <a
+					href="{{ path('profile_view', {'id': message.getIdUser().getIdUser() }) }}"><img class="avatar"
+						src="{{ asset('images/avatars/' ~ message.getIdUser().getAvatar()) }}">{{ message.getIdUser().getNameUser() }}</a>
+			</div>
+		</div>
+		<hr>
+		<div class="message">{{ message.getContentMessage() }}</div>
+
+		<div class="reponse">
+			<div><a class="answer" href="{{ path('reply_message', {'userId': message.getIdUser().getIdUser(), 'messageId': message.getIdMessage()}) }}">répondre</a>
+			</div>
+			<div><a class="delete" href="{{ path('remove_message', {'id': message.getIdMessage()}) }}">supprimer</a>
+			</div>
+		</div>
+
+	</div>
+	{% endfor %}
+
+
+	{% for message in sentMessages %}
+	<div class="envoye">
+			<div class="mess-header">
+			<div class="subject">{{ message.getSubjectMessage() }}</div>
+		<div class="info">envoyé à <a
+				href="{{ path('profile_view', {'id': message.getIdUserRecipient().getIdUser() }) }}"><img class="avatar"
+				src="{{ asset('images/avatars/' ~ message.getIdUserRecipient().getAvatar()) }}">{{ message.getIdUserRecipient().getNameUser() }}</a>
+			le {{ message.getCreatedDateMessage()|date('d/m/Y à H:i') }}</div>
+		</div>
+		<hr>
+		<div>{{ message.getContentMessage() }}</div>
+
+		<div class="reponse">
+				<div><a class="answer" href="{{ path('reply_message', {'userId': message.getIdUser().getIdUser(), 'messageId': message.getIdMessage()}) }}">répondre</a>
+				</div>
+				<div><a class="delete" href="{{ path('remove_message', {'id': message.getIdMessage()}) }}">supprimer</a>
+				</div>
+			</div>
+	</div>
+	{% endfor %}
+
+
+	{% block javascript %}
+
+	<script>
+		$(document).ready(function () {
+			$(".recu-link").on("click", function () {
+				$(".envoye").fadeOut("slow");
+				$(".recu").fadeIn("slow");
+			});
+
+			$(".envoye-link").on("click", function () {
+				$(".recu").fadeOut("slow");
+				$(".envoye").fadeIn("slow");
+			});
+		});
+	</script>
+
+	{% endblock %}
+
+	{% endblock %}

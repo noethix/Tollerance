@@ -1,0 +1,141 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/view_groupe.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}{{ groupe.getNameGroup() }}{% endblock %}
+
+
+{% block body %}
+<div class="main-container">
+<div class="container-top">
+
+<img class="photo" src="{{ asset('images/groupes/' ~ groupe.getPhotoGroup())}}">
+
+<div class="name">{{ groupe.getNameGroup() }}</div>
+
+
+<div class="quoi">{{ groupe.getDescriptionGroupe() }}</div>
+
+<!--{% for user in groupe.getGroupesUser() %}-->
+<div class="creer">crée par <a href="{{ path('profile_view', {'id': user.getIdUser()}) }}"><img class="avatar-photo" src="{{ asset('images/avatars/' ~ groupe.getCreatedBy().getAvatar) }}">{{ groupe.getCreatedBy().getNameUser }}</a></div>
+<!--{% endfor %}-->
+
+<div class="who-comes">
+	{{ form_start(participateForm, {'attr': {'id': 'participateForm'}}) }}
+		{{ form_widget(participateForm) }}
+	{{ form_end(participateForm) }}
+</div>
+</div>
+
+
+<div class="container-bottom">
+
+{% if (user == createdby) or (is_granted('ROLE_ADMIN')) %}
+	<div class="update">
+		<a type="button" class="btn btn-info" href=" {{ path('updateGroupe', {'id': groupe.getIdGroupe()}) }}">modifie le groupe</a>
+	</div>
+	<br>
+	<div class="delete">
+		<div id="dialog_modal" class="modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Supprimer un groupe</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Es tu sûr(e) de vouloir supprimer ce groupe ?</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button id="delete_button" type="button" class="btn btn-primary">Oui</button>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<button 
+		  class="btn btn-dark"
+		  type="button" 
+		  aria-haspopup="dialog"
+		  aria-controls="dialog" data-toggle="modal" data-target="#dialog_modal">Supprimer le groupe
+		</button>
+	</div>
+{% endif %}
+
+<div class="people">
+<p>les membres...</p>
+{% for user in groupe.getGroupesUser() %}
+<ul id="eve-people">
+	<li><a href="{{ path('profile_view', {'id': user.getIdUser()}) }}"><img class="eve-people-photo" src="{{ asset('images/avatars/' ~ user.getAvatar()) }}"><br>{{ user.getNameUser() }}</a></li>
+	</ul>
+{% endfor %}
+</div>
+
+<div class="eve-comments">
+<p>Sujets</p>
+<div class="comments-posts">
+{% for topic in topics %}
+	<div><img class="avatar" src="{{ asset('images/avatars/' ~ topic.getIdUser().getAvatar()) }}"><a href="{{ path('topic', {'id': topic.getIdTopic()}) }}">{{ topic.getNameTopic() }}</a> <span class="small">par <a href="{{ path('profile_view', {'id': topic.getIdUser().getIdUser()}) }}">{{ topic.getIdUser().getNameUser() }}</a> - le {{ topic.getCreatedDateTopic()|date("d/m/Y à H:i") }}</span><hr></div>
+{% endfor %}
+</div>
+
+<div>
+	{% if page == 1 %}
+		page : 1 
+	{% else %}
+		page : <a href="{{ path('groupe', {'id': groupe.getIdGroupe(), 'page': 1}) }}">1</a>
+	{% endif %}
+
+	{% if pages > 1 %}
+		{% for i in 2..pages %}
+			{% if i == page %}
+				| {{ i }}
+			{% else %}
+				| <a href="{{ path('groupe', {'id': groupe.getIdGroupe(), 'page': i}) }}">{{ i }}</a>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<div>
+{% if participate == true %}
+<p>crée un sujet</p>
+<div>			   
+	{{ form_start(form) }}
+		{{ form_widget(form) }}
+	{{ form_end(form) }}
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+</div>
+{% block javascript %}
+	<script>
+		$("#join_join_0").click(function() {
+  			$("#participateForm").submit();
+		});
+		$("#join_join_1").click(function() {
+  			$("#participateForm").submit();
+		});
+		{% if participate == true %}
+			$(document).ready(function() {
+				$("#join_join_0").prop('checked', true);
+			});
+		{% else %}
+			$(document).ready(function() {
+				$("#join_join_1").prop('checked', true);
+			});
+		{% endif %}
+		$("#delete_button").click(function() {
+			window.location.href = '{{ path('deleteGroupe', {'id': groupe.getIdGroupe()}) }}';
+		});
+
+	</script>
+{% endblock %}
+
+{% endblock %}

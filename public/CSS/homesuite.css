@@ -1,0 +1,85 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+    z-index: -1;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+p {
+    text-align: center;
+    padding-top: 1%;
+}
+
+.big_pic {
+   display: flex;
+   flex-direction: column;
+   
+}
+
+.next {
+    position: absolute;
+    width: 1100px;
+    height: 250px;
+    left: 30px;
+    top: 115px;
+    background: #FCFDE5;
+    padding-top: 2%;
+    
+}
+
+.what {
+    position: absolute;
+    width: 817px;
+    height: 230px;
+    left: 110px;
+    top: 340px;
+    background: rgba(229, 253, 251, 0.5);
+    padding-top: 3%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.groups {
+    position: absolute;
+    width: 1100px;
+    height: 230px;
+    left: 60px;
+    top: 550px;
+    background: #C8E9F4;
+    padding-top: 4%;
+    padding-left: 1%;
+    padding-right: 1%;
+    z-index: -1;
+}
+
+.infos {
+    border: 1px;
+    border-color: #c2fccd;
+    border-radius: 50%;
+    position: absolute;
+    width: 260px;
+    height: 250px;
+    left: 970px;
+    top: 320px;
+    background: #c2fccd;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 20px;
+    font-weight: bold;
+    color: #636363;
+}
+
+footer {
+    position: absolute;
+}
+
+a {
+    color: #636363;
+}

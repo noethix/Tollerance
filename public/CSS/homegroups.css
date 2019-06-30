@@ -1,0 +1,39 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background-color:  rgb(233, 230, 230)!important;
+    z-index: -1;
+}
+
+.card-deck {
+    margin-top: 100px!important;
+    display: flex;
+   flex-direction: column;
+   margin: 30px;
+}
+
+.card-deck3 {
+    display: flex;
+   flex-direction: row;
+   margin-top: 40px;
+}
+
+.card {
+    margin: 15px 10px 15px 10px;
+    width: 20%;
+    padding: 2%;
+    text-align: center;
+    align-items: center;
+   
+}
+
+.card-img-top {
+    width: 60%;
+    align-content: center;
+}
+
+.card-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #636363;
+}

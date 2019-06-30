@@ -1,0 +1,201 @@
+@import 'https://fonts.googleapis.com/css?family=Comfortaa|Dosis';
+
+html, body {
+    background: #FFFCEE;
+}
+.main-container {
+    align-content: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    margin-top: 100px;
+}
+.container-top {
+    display: grid;
+    margin-bottom: 50px;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(14, 60px);
+    grid-area: photo;
+}
+
+.photo {
+    grid-column: 5/ span 8;
+    grid-row: 1/9;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.name {
+    grid-column: 7/ 11;
+    grid-row: 2/3;
+    background: rgba(252, 248, 233,.7);
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.quoi {
+    grid-column: 6/ 12;
+    grid-row: 8/ 11;
+    background: rgba(253, 89, 89, 0.8);
+    justify-self: stretch;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.creer {
+    grid-column: 3/6;
+    grid-row: 5/ 6;
+    background: rgba(253, 89, 89, 0.7);
+    padding: 10px;
+    border-radius: 10px; 
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar-photo {
+    border-radius: 50%;
+    height: 50px;
+    margin: 10px;
+}
+
+.who-comes {
+    grid-column: 6/12;
+    grid-row: 13/ 14;
+    background: rgba(246, 255, 241, 0.8);
+    padding: 10px 10px 30px 10px;
+    border-radius: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-bottom {
+   margin-top: 30px;
+}
+
+.eve-people {
+    margin-bottom: 50px;
+}
+
+.people p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem;
+    margin: 50px 0;
+}
+
+#eve-people {
+    display: inline-block;
+    justify-content: center;
+}
+
+.eve-people-photo{
+    border-radius: 50%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 0 30px;
+}
+
+
+a { 
+    color: #000;
+}
+
+a:hover{
+    color: rgb(133, 133, 133);
+    text-decoration: none;
+}
+
+.eve-comments p {
+    font-family: 'Dosis', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    align-items: center;
+    margin: 50px 0 50px 0;
+}
+
+.eve-comments {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 100px;
+}
+
+.avatar {
+    border-radius: 50%;
+    height: 60px;
+    margin: 20px;
+}
+
+.comments-posts {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    background: rgb(250, 250, 250);
+}
+
+hr {
+    width: 80%;
+    margin: auto;
+}
+
+#topic_contentTopic{
+    width: 50%;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: .8em;
+    background: rgb(250, 250, 250);
+}
+
+#topic_nameTopic{
+    width: 50%;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: .8em;
+    background: rgb(250, 250, 250);
+}
+label {
+    margin: 0 30px 0 10px;
+}
+
+#posts, .btn{
+    margin: auto;
+}
+
+.btn {
+    width: 50%;
+    margin: auto;
+}
+
+.btn-primary {
+    margin: 20px 0;
+    color: #000;
+    background-color: rgb(255, 238, 162);
+    border-color: rgb(216, 201, 133);
+}
+
+.btn-primary:hover {
+    background-color: #FFFCEE;
+    border-color: rgb(216, 201, 133);
+    color: rgb(94, 94, 94);
+}

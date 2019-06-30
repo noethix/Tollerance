@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.nameUser }}{% endblock %}
+
+{% block stylesheets %}
+
+<link href="{{ asset('css/formadmin.css') }}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block body %}
+
+
+<div class='form_contact'>
+	{% for flash_message in app.session.flashbag.get('notice') %}
+		<div class="alert alert-success">
+			{{ flash_message }}
+		</div>
+	{% endfor %}
+<div>
+	<h3>Paramètres pour {{ user.nameUser }}</h3>
+	<div class ="flex-avatar" ><img class="avatar" src="{{ asset('images/avatars/' ~ user.avatar) }}"></div>
+</div> 
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+
+</div>
+
+
+
+{% endblock %}

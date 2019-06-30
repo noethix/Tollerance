@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Toutes les activités{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/displayactivites.css') }}" type="text/css" rel="stylesheet"/>
+
+<link href="{{ asset('fullcalendar/packages/core/main.css') }}" type="text/css" rel="stylesheet"/>
+<link href="{{ asset('fullcalendar/packages/list/main.css') }}" type="text/css" rel="stylesheet"/>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+<div >
+    <h3>Liste des activités à venir...</h3>
+    
+    <div>
+    <a class="btn btn-secondary" href="{{ path ('activitesNew', {'id':4}) }}">Ajoute une activité</a>    </div>
+    <br>
+	<div class="formulaire_taches" class="formulaire_contact">
+        {{ form_start(form) }}
+		
+        <div class="row">
+		
+		<div class="col-6">
+        {{ form_widget(form.region) }}
+        </div><div class="col-6">
+		{{ form_widget(form.departement) }}
+        </div></div>
+        
+        {{ form_end(form) }}
+        </div>
+    </div>
+	
+	
+        <br>
+        <div id='calendar'></div>
+
+
+</div>
+
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/selectRegionDisplayActivites.js') }}"></script>
+<script type="text/javascript" src='{{ asset('fullcalendar/packages/core/locales-all.js') }}'></script>
+<script type="text/javascript" src="{{ asset('fullcalendar/packages/core/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('fullcalendar/packages/list/main.js') }}"></script>
+
+<script type="text/javascript">
+
+
+$( document ).ready(function() {
+
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'list' ],
+      locale: 'fr',
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'listDay,listWeek,listMonth,listYear'
+      },
+
+      // customize the button names,
+      // otherwise they'd all just say "list"
+      views: {
+        listDay: { buttonText: 'Ce jour' },
+        listWeek: { buttonText: 'Cette semaine' },
+        listMonth: { buttonText: 'Ce mois' },
+        listYear: { buttonText: 'Cette année' },
+      },
+
+      defaultView: 'listWeek',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+          {% for activite in displayactivites %}
+            {
+            title: '<div class="row"><div class="col text-center"><img  style="margin-top:0px" class="photoevent" src="{{asset ('images/activites/' ~ activite.getPhotoActivites())}}"/></div><div class="col"><div>Activité : {{ activite.getNameActvites()|raw|e('js') }}</div><div>Date : {{ activite.getDateActivites()|date("d/m/Y") }}.</div><div>Crée par : {{ activite.getUser().getNameUser() }}.</div><div>Description : {{ activite.getDescriptionActivites() }}</div><div>Prix : {{ activite.getPriceActivite() }}€.</div><div>Ville : {{ activite.getLocationActivites() }}</div><div>Région : {{ activite.getRegion().getNameRegion()}}.</div><div>Département : {{ activite.getDepartement().getNameDepartment()}}.</div></div></div>',
+            start: '{{ activite.getdateActivites()|date("Y-m-d") }}',
+            url: '{{ path('activite', {'id': activite.getidActivites()}) }}'
+            },
+          {% endfor %}
+      ],
+        eventRender: function(info) {
+            info.el.lastChild.firstChild.innerHTML=info.el.lastChild.firstChild.innerText;
+        }
+    });
+
+    calendar.render();
+});
+
+</script>
+{% endblock %}
